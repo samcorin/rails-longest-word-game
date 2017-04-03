@@ -1,0 +1,24 @@
+<!-- OPTIONAL: SET LENGTH -->
+<!-- <p>How many letters?</p>
+<form action="/game" method="get">
+  <input type="text" name="size" value="7">
+  <input type="submit">
+</form>
+
+<br> -->
+
+<div class="letters">
+  <% @grid.each do |letter| %>
+    <%= letter %>
+  <% end %>
+</div>
+
+<br>
+
+<form action="/score" method="get" class="form">
+  <input type="text" name="attempt" id="attempt" autofocus autocomplete="off">
+  <input type="hidden" name="grid" value="<%= @grid %>">
+  <input type="hidden" name="start_time" value="<%= @start_time.to_i %>">
+  <input type="hidden" name="end_time" value="<%= Time.now.to_i %>">
+  <input type="submit" id="submit">
+</form>

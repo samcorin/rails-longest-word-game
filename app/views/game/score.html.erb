@@ -1,0 +1,22 @@
+<!-- <h1>Cogratulations!</h1> -->
+<!-- right adjust -->
+
+<% if @result[:score] > 0 %>
+  <h1 class="message"><em>"<%= @result[:message] %>"</em></h1>
+  <br>
+  <h2>Attempt: <strong><%= @attempt %></strong></h2>
+  <h2>Score: <strong><%= @result[:score] %></strong></h2>
+  <% if @result[:translation] %>
+    <h2>Translation: <strong><%= @result[:translation] %></strong></h2>
+    <h2>Time: <strong><%= @result[:time] %></strong> seconds</h2>
+  <% end %>
+<% else %>
+  <h2><%= @failed_attempt %></h2>
+<% end %>
+
+<br>
+
+<div class="back">
+  <h2 class="back-link"><%= link_to "New Game", :root %></h2>
+  <!-- <h2>Press R to play again.</h2> -->
+</div>

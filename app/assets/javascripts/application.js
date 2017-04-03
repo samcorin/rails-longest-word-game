@@ -12,5 +12,46 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  // Color letters
+  // $(document).on("keypress", function(e) {
+    // console.log(String.fromCharCode(e.which));
+  // })
+
+  $("#attempt").keydown(function(e) {
+    // e.preventDefault();
+    // $("p > label:contains('*')").each(function () {
+    var letter = String.fromCharCode(e.which)
+    var str = $('.letters').text()
+
+    if (str.indexOf(letter) != -1) {
+      str = str.replace(letter, "");
+      $('.letters').text(str);
+    } else {
+      // shake
+      console.log("no")
+      // $('.letters').effect( "shake" );
+    }
+
+  })
+
+  // DISABLE SUBMIT BUTTON IF EMPTY ----- NOT REALLY WOKRING, Enter key fucks this up
+  $('#submit').attr('disabled',true);
+
+  $('#attempt').keyup(function(e){
+    if($(this).val().length !=0)
+        $('#submit').attr('disabled', false);
+    else
+        $('#submit').attr('disabled',true);
+  })
+
+  // <%= link_to "New Game", :root %>
+  // PLAY AGAIN
+
+})
